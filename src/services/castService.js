@@ -1,7 +1,7 @@
 import Cast from "../models/Cast.js";
 
 export default {
-    getAll() {
+    getAll(ids) {
         return Cast.find({});
     },
     
