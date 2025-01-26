@@ -6,7 +6,7 @@ export default {
     
         return result;
     },
-    
+
     findMovieWithCasts(movieId) {
         return this.findMovie(movieId).populate('casts');
     },
@@ -40,10 +40,12 @@ export default {
     },
 
     async attachCast(movieId, castId) {
-        const movie = await Movie.findById(movieId);
-        movie.casts.push(castId);
-        await movie.save();
+        // const movie = await Movie.findById(movieId);
+        // movie.casts.push(castId);
+        // await movie.save();
 
-        return movie;
+        // return movie;
+
+        return Movie.findByIdAndUpdate(movieId, { $push: { casts: castId } });
     }
 }
