@@ -40,7 +40,7 @@ export default {
         return query;
     },
 
-    async attachCast(movieId, castId) {
+    attachCast(movieId, castId) {
         // const movie = await Movie.findById(movieId);
         // movie.casts.push(castId);
         // await movie.save();
@@ -48,5 +48,9 @@ export default {
         // return movie;
 
         return Movie.findByIdAndUpdate(movieId, { $push: { casts: castId } });
+    },
+
+    delete(movieId) {
+        return Movie.findByIdAndDelete(movieId);
     }
 }
